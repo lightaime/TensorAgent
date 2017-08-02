@@ -1,11 +1,14 @@
 import tensorflow as tf
 
 class Model(object):
-    def __init__(self, state_dim, action_dim, entropy_beta=1e-1, optimizer=None):
+    def __init__(self, state_dim, action_dim, entropy_beta=1e-3, optimizer=None, learning_rate=0.001):
         self.state_dim = state_dim
         self.action_dim = action_dim
         self.entropy_beta = entropy_beta
-        self.optimizer = optimizer or tf.train.RMSPropOptimizer(learning_rate=0.001)
+        self.learning_rate = learning_rate
+        tf.reset_default_graph()
+        self.global_step = tf.Variable(0, name="global_step", trainable=False)
+        self.optimizer = optimizer or tf.train.RMSPropOptimizer(self.learning_rate)
 
         with tf.name_scope("model_input"):
             self.input_state = tf.placeholder(tf.float32, shape=[None, self.state_dim], name="states")
