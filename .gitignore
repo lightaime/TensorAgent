@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# gym video
+/CartPole-v0*
