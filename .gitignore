@@ -102,3 +102,7 @@ ENV/
 
 # gym video
 /CartPole-v0*
+/Pendulum-v0*
+
+# test scripts
+test*
