@@ -1,6 +1,11 @@
+import os, sys
+lib_path = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(lib_path)
+
 import tensorflow as tf
 from ddpg_actor import DDPG_Actor
 from ddpg_critic import DDPG_Critic
+
 
 class Model(object):
     def __init__(self,
