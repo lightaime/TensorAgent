@@ -28,7 +28,7 @@ def main():
                   actor_learning_rate=ACTOR_LEARNING_RATE,
                   critic_learning_rate=CRITIC_LEARNING_RATE,
                   tau=TAU)
-    replay_buffer = Replay_Buffer(buffer_size=BUFFER_SIZE ,batch_size=BATCH_SIZE)
+    replay_buffer = Replay_Buffer(buffer_size=int(BUFFER_SIZE) ,batch_size=BATCH_SIZE)
     exploration_noise = OU_Process(action_dim)
     agent = Agent(model, replay_buffer, exploration_noise, discout_factor=DISCOUNT_FACTOR)
 
