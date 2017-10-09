@@ -28,11 +28,11 @@ class DDPG_Actor(object):
         with tf.name_scope("actor_label"):
             self.actions_grad = tf.placeholder(tf.float32, shape=[None, self.action_dim], name="actions_grad")
 
-        self.source_var_scope = "actor_net"
+        self.source_var_scope = "ddpg/" + "actor_net"
         with tf.variable_scope(self.source_var_scope):
             self.action_output = self.__create_actor_network()
 
-        self.target_var_scope = "actor_target_net"
+        self.target_var_scope = "ddpg/" + "actor_target_net"
         with tf.variable_scope(self.target_var_scope):
             self.target_net_actions_output = self.__create_target_network()
 

@@ -30,11 +30,11 @@ class DDPG_Critic(object):
         with tf.name_scope("critic_label"):
             self.y = tf.placeholder(tf.float32, shape=[None, 1], name="y")
 
-        self.source_var_scope = "critic_net"
+        self.source_var_scope = "ddpg/" + "critic_net"
         with tf.variable_scope(self.source_var_scope):
             self.q_output = self.__create_critic_network()
 
-        self.target_var_scope = "critic_target_net"
+        self.target_var_scope = "ddpg/" + "critic_target_net"
         with tf.variable_scope(self.target_var_scope):
             self.target_net_q_output = self.__create_target_network()
 

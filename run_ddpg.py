@@ -1,8 +1,8 @@
 from model.ddpg_model import Model
-from gym import wrappers
 from agent.ddpg import Agent
 from mechanism.replay_buffer import Replay_Buffer
 from mechanism.ou_process import OU_Process
+from gym import wrappers
 import gym
 import numpy as np
 
