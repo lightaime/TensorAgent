@@ -23,9 +23,8 @@ class Model(object):
         self.tau = tau
 
         #tf.reset_default_graph()
-        #self.sess = sess or tf.Session()
-        self.sess = sess
-        
+        self.sess = sess or tf.Session()
+
         self.global_step = tf.Variable(0, name="global_step", trainable=False)
         global_step_vars = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, scope="global_step")
         self.sess.run(tf.variables_initializer(global_step_vars))
