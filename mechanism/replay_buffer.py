@@ -20,9 +20,9 @@ class Replay_Buffer(object):
         b_s = batch_size or self.batch_size
         cur_men_size = len(self.memory)
         if cur_men_size < b_s:
-            return random.sample(self.memory, cur_men_size)
+            return random.sample(list(self.memory), cur_men_size)
         else:
-            return random.sample(self.memory, b_s)
+            return random.sample(list(self.memory), b_s)
 
     def memory_state(self):
         return {"buffer_size": self.buffer_size,
