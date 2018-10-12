@@ -1,2 +1,2 @@
 # TensorAgent
-Deep reinforcement learning agents implement by tensorflow
+Deep reinforcement learning agents implemented by tensorflow
